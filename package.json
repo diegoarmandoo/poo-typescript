@@ -1,0 +1,28 @@
+{
+  "name": "poo-typescript",
+  "version": "1.0.0",
+  "description": "Este é um projeto acadêmico para prática dos fundamentos do paradigma orientado objeto (POO) com a linguagem de programação TypeScript. Utilizado em sala de aula para implementação dos conceitos estruturais, relacionais e organizacionais do POO.Este é um projeto acadêmico para prática dos fundamentos do paradigma orientado objeto (POO) com a linguagem de programação TypeScript. Utilizado em sala de aula para implementação dos conceitos estruturais, relacionais e organizacionais do POO.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "paradigma",
+    "orientado",
+    "objeto",
+    "poo",
+    "acadêmico",
+    "ifs",
+    "programação",
+    "II"
+  ],
+  "author": "Diego Armando",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "sucrase": "^3.32.0",
+    "typescript": "^5.0.4"
+  }
+}

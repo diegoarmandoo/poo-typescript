@@ -1,6 +1,6 @@
-import { Endereco } from "./endereco";
-import { Pessoa } from "./pessoa";
-import { Projeto } from "./projeto";
+import { Endereco } from "../endereco/endereco";
+import { Pessoa } from "../pessoa/pessoa";
+import { Projeto } from "../projeto/projeto";
 
 class Aluno extends Pessoa implements Projeto {
 
@@ -8,8 +8,28 @@ class Aluno extends Pessoa implements Projeto {
 	//Atributos de Instância//
 	//////////////////////////
 
-    curso: string;
-    situacao: SituacaoAluno; //Associação Estrutural - Composição - A partir de atributo
+    private _curso: string = '';
+    private _situacao: SituacaoAluno = SituacaoAluno.ATIVO; //Associação Estrutural - Composição - A partir de atributo
+    
+    ///////////////
+    //Gets e Sets//
+    ///////////////
+
+    public get curso(): string {
+        return this._curso;
+    }
+
+    public set curso(value: string) {
+        this._curso = value;
+    }
+
+    public get situacao(): SituacaoAluno {
+        return this._situacao;
+    }
+
+    public set situacao(value: SituacaoAluno) {
+        this._situacao = value;
+    }
 
     //////////////
 	//Construtor//
@@ -29,17 +49,17 @@ class Aluno extends Pessoa implements Projeto {
     // O método gerarMatricula é uma sobrescrita (Override)
 	// A implementação do método gerarMatricula na classe Aluno sobrescreve o método abstrato definido na classe Pessoa
 	// Associaçaõ Comportamental - Dependência da Classe Aluno com as classes Date e Math
-    gerarMatricula(): number {
+    protected gerarMatricula(): number {
         let ano: number = new Date().getFullYear();
 		let numero: number = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
 		return Number(`${ano}${numero}`)
     }
 
-    submeterProjetoPesquisa(): void {
+    public submeterProjetoPesquisa(): void {
         console.log("Isso é uma submissão de projeto de pesquisa de aluno");
     }
 
-    submeterProjetoExtensao(): void {
+    public submeterProjetoExtensao(): void {
         console.log("Isso é uma submissão de projeto de extensão de aluno");
     }
 

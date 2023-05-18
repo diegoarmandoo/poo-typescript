@@ -1,3 +1,5 @@
+import { Endereco } from "./endereco";
+
 abstract class Pessoa {
 
     //////////////////////////
@@ -8,10 +10,10 @@ abstract class Pessoa {
     nome: string = '';
     sobrenome: string = '';
     sexo: string = '';
-    CPF: string = '';
+    CPF: string  = '';
     idade: number = 0;
     brasileiro: boolean = true;
-    enderecos: string[] = []; // Ou let enderecos: Array<string>;
+    enderecos: Endereco[] = []; // Ou let enderecos: Array<string>;
 
     ///////////////////////
 	//Atributos Estáticos//
@@ -23,7 +25,7 @@ abstract class Pessoa {
 	//Construtor//
 	//////////////
 
-    constructor(nome: string, sobrenome: string, sexo: string, CPF: string, idade: number, brasileiro: boolean, enderecos: string[]){
+    constructor(nome: string, sobrenome: string, sexo: string, CPF: string, idade: number, brasileiro: boolean, enderecos: Endereco[]){
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.sexo = sexo;
@@ -42,7 +44,7 @@ abstract class Pessoa {
         return (`O nome completo é: ${this.nome} ${this.sobrenome}`);
     }
     
-    recuperarEndereco(posicao: number): string {
+    recuperarEndereco(posicao: number): Endereco {
         return this.enderecos[posicao];
     }
 

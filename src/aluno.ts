@@ -1,19 +1,21 @@
+import { Endereco } from "./endereco";
 import { Pessoa } from "./pessoa";
+import { Projeto } from "./projeto";
 
-class Aluno extends Pessoa {
+class Aluno extends Pessoa implements Projeto {
 
     //////////////////////////
 	//Atributos de Instância//
 	//////////////////////////
 
     curso: string;
-    situacao: string;
+    situacao: SituacaoAluno; //Associação Estrutural - Composição - A partir de atributo
 
     //////////////
 	//Construtor//
 	//////////////
 
-    constructor(nome: string, sobrenome: string,sexo: string, CPF:string, idade: number, brasileiro: boolean, enderecos: string[],curso: string, situacao: string){
+    constructor(nome: string, sobrenome: string,sexo: string, CPF:string, idade: number, brasileiro: boolean, enderecos: Endereco[],curso: string, situacao: SituacaoAluno){
         super(nome,sobrenome,sexo,CPF,idade,brasileiro, enderecos);
         this.matricula = this.gerarMatricula();
 		this.curso = curso;
@@ -33,6 +35,23 @@ class Aluno extends Pessoa {
 		return Number(`${ano}${numero}`)
     }
 
+    submeterProjetoPesquisa(): void {
+        console.log("Isso é uma submissão de projeto de pesquisa de aluno");
+    }
+
+    submeterProjetoExtensao(): void {
+        console.log("Isso é uma submissão de projeto de extensão de aluno");
+    }
+
 }
 
-export { Aluno }
+enum SituacaoAluno {
+    ATIVO = 'Ativo',
+	MATRICULADO = 'Matriculado',
+	TRANCADO = 'Trancado',
+	CONCLUIDO = 'Concluído',
+	CANCELADO = 'Cancelado',
+	FORMANDO = 'Formando' 
+}
+
+export { Aluno, SituacaoAluno }

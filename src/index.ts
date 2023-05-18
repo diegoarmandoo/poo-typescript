@@ -1,16 +1,13 @@
 import { Pessoa } from "./pessoa";
+import { Aluno } from "./aluno";
+import { Professor } from "./professor";
 
-const diego: Pessoa = new Pessoa("Diego", "Armando de Oliveira ", 36, true, ['Rua A','Rua C']);
-const maria: Pessoa = new Pessoa("Maria", "José", 25, false, ['Rua B']);
-const pedro: Pessoa = new Pessoa("Pedro", "José", 35, true, ['Rua C']);
+const felipe: Pessoa = new Aluno("Felipe","Jose","Masculino","9999",34,true,['Rua F'],"Informatica","Matriculado"); 
+const luis: Professor = new Professor("Luis","Santos","Masculino","9999",56,false,['Portugal'],1000);
 
-console.log(diego.exibirNomeCompleto());
-console.log(diego.recuperarEndereco(0));
-console.log(diego.nome);
-console.log(diego);
-console.log("-------------------------------")
-console.log(maria.exibirNomeCompleto());
-console.log(maria.recuperarEndereco(0));
-console.log(maria.nome);
+console.log(felipe);
+console.log(felipe.recuperarEndereco(0));
+console.log(luis);
+console.log(luis.recuperarEndereco(0));
 console.log("-------------------------------")
 console.log(Pessoa.getQuantidadePessoas());

@@ -1,6 +1,6 @@
-import { Endereco } from "./endereco";
-import { Pessoa } from "./pessoa";
-import { Projeto } from "./projeto";
+import { Endereco } from "../endereco/endereco";
+import { Pessoa } from "../pessoa/pessoa";
+import { Projeto } from "../projeto/projeto";
 
 class Professor extends Pessoa implements Projeto {
 
@@ -8,7 +8,19 @@ class Professor extends Pessoa implements Projeto {
 	//Atributos de Instância//
 	//////////////////////////
 
-    salario: number;
+    private _salario: number = 0;
+
+    ///////////////
+    //Gets e Sets//
+    ///////////////
+
+    public get salario(): number {
+        return this._salario;
+    }
+
+    public set salario(value: number) {
+        this._salario = value;
+    }
 
     //////////////
 	//Construtor//
@@ -27,15 +39,15 @@ class Professor extends Pessoa implements Projeto {
     // O método gerarMatricula é uma sobrescrita (Override)
 	// A implementação do método gerarMatricula na classe Aluno sobrescreve o método abstrato definido na classe Pessoa
 	// Associaçaõ Comportamental - Dependência da Classe Aluno com as classes Date e Math
-    gerarMatricula(): number {
+    protected gerarMatricula(): number {
         return Math.floor(Math.random() * (99999999 - 10000000 + 1) + 10000000);
     }
 
-    submeterProjetoPesquisa(): void {
+    public submeterProjetoPesquisa(): void {
         console.log("Isso é uma submissão de projeto de pesquisa de professor");
     }
 
-    submeterProjetoExtensao(): void {
+    public submeterProjetoExtensao(): void {
         console.log("Isso é uma submissão de projeto de extensão de professor");
     }
 
